@@ -1,0 +1,65 @@
+[
+    {
+        "id": "prod-001",
+        "name": "Classic Wayfarer",
+        "description": "Estilo atemporal y versátil para cualquier ocasión. Montura resistente y ligera.",
+        "image": "/glasses.png",
+        "price": "$120.000"
+    },
+    {
+        "id": "prod-002",
+        "name": "Aviator Pro",
+        "description": "El clásico diseño de aviador con un toque moderno. Lentes polarizados para máxima protección.",
+        "image": "/glasses.png",
+        "price": "$145.000"
+    },
+    {
+        "id": "prod-003",
+        "name": "Round Vintage",
+        "description": "Inspirados en los años 60, estos lentes redondos aportan un look intelectual y retro.",
+        "image": "/glasses.png",
+        "price": "$110.000"
+    },
+    {
+        "id": "prod-004",
+        "name": "Cat Eye Chic",
+        "description": "Elegancia felina que nunca pasa de moda. Ideales para resaltar tus rasgos.",
+        "image": "/glasses.png",
+        "price": "$130.000"
+    },
+    {
+        "id": "prod-005",
+        "name": "Square Bold",
+        "description": "Montura cuadrada y gruesa para una declaración de estilo audaz y contemporánea.",
+        "image": "/glasses.png",
+        "price": "$135.000"
+    },
+    {
+        "id": "prod-006",
+        "name": "Titanium Light",
+        "description": "Hechos de titanio ultraligero, olvidarás que los llevas puestos. Durabilidad extrema.",
+        "image": "/glasses.png",
+        "price": "$180.000"
+    },
+    {
+        "id": "prod-007",
+        "name": "Sport Performance",
+        "description": "Diseñados para la acción. Agarre antideslizante y resistencia a impactos.",
+        "image": "/glasses.png",
+        "price": "$150.000"
+    },
+    {
+        "id": "prod-008",
+        "name": "Minimalist Rimless",
+        "description": "Diseño al aire para quienes prefieren la sutileza. Elegancia discreta.",
+        "image": "/glasses.png",
+        "price": "$160.000"
+    },
+    {
+        "id": "prod-009",
+        "name": "Oversized Diva",
+        "description": "Lentes de gran tamaño para máxima cobertura y un look de estrella de cine.",
+        "image": "/glasses.png",
+        "price": "$140.000"
+    }
+]
