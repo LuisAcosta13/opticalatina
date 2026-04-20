@@ -11,14 +11,76 @@ export default function Home() {
       <main className="flex min-h-screen w-full flex-col items-center justify-center gap-10">
         <Hero />
 
-        <section className="max-w-6xl flex flex-col sm:flex-row justify-center items-center w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center items-center border-b-1 sm:border-r-1 sm:border-b-0 border-gray-300 sm:py-10 pb-6 mb-6 sm:pr-6 sm:mr-6 w-1/2">
-            <h2 className="text-3xl font-bold">Óptica Latina</h2>
+        <section className="w-full max-w-6xl px-4 py-16 sm:px-6 lg:px-8 space-y-24">
+          {/* Acetate Section */}
+          <div className="flex flex-col md:flex-row items-center gap-12 animate-fade-in-up">
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary">
+                Elegancia en Acetato de Alta Calidad
+              </h2>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Nuestros armazones están fabricados con **acetato de celulosa premium**, un material hipoalergénico derivado de fuentes naturales. 
+                A diferencia del plástico común, el acetato ofrece una profundidad de color única, una flexibilidad superior y una durabilidad que resiste el paso del tiempo. 
+                Cada pieza es pulida a mano para lograr un brillo sedoso que se siente tan bien como se ve.
+              </p>
+              <div className="pt-4">
+                <span className="inline-flex items-center px-4 py-2 rounded-full bg-secondary/10 text-secondary font-semibold text-sm">
+                  Hecho para durar
+                </span>
+              </div>
+            </div>
+            <div className="flex-1 w-full">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+                <img 
+                  src="/images/banner-2.png" 
+                  alt="Armazón de acetato premium" 
+                  className="object-cover w-full h-full"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              </div>
+            </div>
           </div>
-          <div className="flex justify-center items-center sm:pl-6">
-            <p className="text-lg text-center sm:text-left text-gray-600">
-              Nos apasiona ofrecer a nuestros clientes los mejores armazones de alta calidad a precios accesibles. Nuestro compromiso es brindar un servicio excepcional y una experiencia de compra única.
-            </p>
+
+          {/* Blue-Cut Section */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-12 animate-fade-in-up [animation-delay:200ms]">
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary">
+                Protección Blue-Cut de Precisión
+              </h2>
+              <p className="text-lg leading-relaxed text-gray-700">
+                En un mundo dominado por las pantallas, tus ojos merecen la mejor defensa. 
+                Nuestros cristales con tecnología **Blue-Cut** actúan como un filtro selectivo que bloquea la luz azul nociva emitida por smartphones y computadoras. 
+                Reduce la fatiga visual, previene dolores de cabeza y mejora significativamente tu ciclo de sueño, todo sin alterar la percepción de los colores naturales.
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-medium text-gray-900">
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                  Menos fatiga visual
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                  Mejor calidad de sueño
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                  Claridad HD
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                  Filtro UV400 integrado
+                </li>
+              </ul>
+            </div>
+            <div className="flex-1 w-full">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+                <img 
+                  src="/images/blue_cut_demo.png" 
+                  alt="Demostración de cristales Blue-Cut" 
+                  className="object-cover w-full h-full"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              </div>
+            </div>
           </div>
         </section>
 
