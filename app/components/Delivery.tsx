@@ -1,6 +1,6 @@
 const Delivery = () => {
     return (
-        <section id="delivery" className="max-w-6xl flex flex-col items-center justify-center gap-12 w-full py-16 px-4 sm:px-6 lg:px-8">
+        <section id="delivery" className="max-w-6xl mx-auto flex flex-col items-center justify-center gap-12 w-full py-16 px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl font-bold">Envío a todo el país</h1>
             <ul className="flex flex-col items-center sm:flex-row sm:items-start justify-center gap-10 sm:gap-50 w-full">
                 <li className="flex flex-col items-center justify-center gap-5 max-w-[250px]">

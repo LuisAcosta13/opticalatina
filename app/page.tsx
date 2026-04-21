@@ -6,12 +6,12 @@ import Delivery from "./components/Delivery";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center bg-background font-sans dark:bg-background">
+    <div className="flex flex-col min-h-screen bg-background font-sans dark:bg-background">
       <Navbar />
-      <main className="flex min-h-screen w-full flex-col items-center justify-center gap-10">
+      <main className="flex min-h-screen w-full flex-col gap-10">
         <Hero />
 
-        <section className="w-full max-w-6xl px-4 py-16 sm:px-6 lg:px-8 space-y-24">
+        <section className="w-full max-w-6xl mx-auto px-4 py-16 sm:px-6 lg:px-8 space-y-24">
           {/* Acetate Section */}
           <div className="flex flex-col md:flex-row items-center gap-12 animate-fade-in-up">
             <div className="flex-1 space-y-6">

@@ -14,7 +14,7 @@ const Products = () => {
   };
 
   return (
-    <section id="products" className="max-w-6xl flex flex-col items-center sm:items-start justify-center px-4 sm:px-6 lg:px-8">
+    <section id="products" className="max-w-6xl mx-auto flex flex-col items-center sm:items-start justify-center px-4 sm:px-6 lg:px-8">
       <h1 className="text-4xl font-bold mb-8">Nuestros armazones</h1>
       <div className="flex flex-col items-center justify-center">
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center items-stretch">

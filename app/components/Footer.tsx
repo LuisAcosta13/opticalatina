@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-col gap-4">
           <h2 className="text-2xl font-bold">ClearVision</h2>
           <p className="text-sm leading-relaxed opacity-80">
-            Tu visión es nuestra prioridad. Ofrecemos los mejores armazones y lentes con tecnología de que filtra la luz azul de las pantallas.
+            Tu visión es nuestra prioridad. Ofrecemos los mejores armazones y lentes con tecnología que filtra la luz azul de las pantallas.
           </p>
         </div>
 

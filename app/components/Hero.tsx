@@ -23,15 +23,15 @@ const Hero = () => {
     }, []);
 
     return (
-        <section id='hero' className="splide relative left-1/2 -translate-x-1/2 w-full h-[50vh] overflow-hidden" aria-labelledby="carousel-heading">
-            <div className="splide__track h-full">
+        <section id='hero' className="splide w-full overflow-hidden" aria-labelledby="carousel-heading">
+            <div className="splide__track">
                 <ul className="splide__list">
-                    <li className="splide__slide">
-                        <Image className="object-cover" src="/banner-1.png" alt="Slide 1" fill priority sizes="100vw"/>
+                    <li className="splide__slide relative w-full aspect-video md:aspect-[1920/540]">
+                        <Image className="object-cover" src="/images/banner1-desktop.png" alt="Slide 1" fill priority sizes="100vw"/>
                     </li>
-                    <li className="splide__slide">
-                        <Image className="object-cover" src="/banner-2.png" alt="Slide 2" fill priority sizes="100vw" />
-                    </li>
+                    <li className="splide__slide relative w-full aspect-video md:aspect-[1920/540]">
+                        <Image className="object-cover" src="/images/banner1-desktop.png" alt="Slide 2" fill priority sizes="100vw"/>
+                    </li>   
                 </ul>
             </div>
         </section>
