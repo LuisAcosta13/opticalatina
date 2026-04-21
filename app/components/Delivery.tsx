@@ -29,7 +29,7 @@ const Delivery = () => {
                 </li>
             </ul>
             <p className="text-lg text-left max-w-6xl">
-                En Óptica Latina, nos enorgullece ofrecer envío a todo el país, asegurando que nuestros clientes puedan disfrutar de nuestros productos sin importar su ubicación. Nuestro compromiso es brindar un servicio de calidad y una experiencia de compra sin complicaciones, entregando tus armazones directamente en tu puerta.
+                En <span className="font-bold">ClearVision</span> nos enorgullece ofrecer envíos a todo el país, asegurando que nuestros clientes puedan disfrutar de nuestros productos sin importar su ubicación. Nuestro compromiso es brindar un servicio de calidad y una experiencia de compra sin complicaciones.
             </p>
         </section>
     );
