@@ -30,7 +30,7 @@ const Hero = () => {
                         <Image className="object-cover" src="/images/banner1-desktop.png" alt="Slide 1" fill priority sizes="100vw"/>
                     </li>
                     <li className="splide__slide relative w-full aspect-video md:aspect-[1920/540]">
-                        <Image className="object-cover" src="/images/banner1-desktop.png" alt="Slide 2" fill priority sizes="100vw"/>
+                        <Image className="object-cover" src="/images/banner2-desktop.png" alt="Slide 2" fill priority sizes="100vw"/>
                     </li>   
                 </ul>
             </div>
