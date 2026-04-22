@@ -1,24 +1,24 @@
 [
     {
         "id": "prod-001",
-        "name": "Classic Wayfarer",
-        "description": "Estilo atemporal y versátil para cualquier ocasión. Montura resistente y ligera.",
-        "image": "/glasses.png",
-        "price": "$120.000"
+        "name": "28053",
+        "description": "Armazón de acetato traslúcido con terminación pulida. Un diseño ligero que combina la estética minimalista con la máxima protección. Ideales para quienes buscan cuidar su vista sin sacrificar su estilo personal.",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_2X_916373-MLA96316342423_102025-F.webp",
+        "price": "$35.000"
     },
     {
         "id": "prod-002",
-        "name": "Aviator Pro",
-        "description": "El clásico diseño de aviador con un toque moderno. Lentes polarizados para máxima protección.",
-        "image": "/glasses.png",
-        "price": "$145.000"
+        "name": "28003",
+        "description": "Tu momento de calma en un día digital agitado. Este armazón ultra ligero combina la elegancia del traslúcido con la tecnología de bloqueo de luz azul. Un accesorio de diseño pensado para quienes buscan balancear su vida laboral con un toque de paz y bienestar.",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_2X_984154-MLA96316138441_102025-F.webp",
+        "price": "$35.000"
     },
     {
         "id": "prod-003",
-        "name": "Round Vintage",
-        "description": "Inspirados en los años 60, estos lentes redondos aportan un look intelectual y retro.",
-        "image": "/glasses.png",
-        "price": "$110.000"
+        "name": "28011",
+        "description": "Estética clásica con un toque contemporáneo. Su montura de diseño equilibrado ofrece un campo visual amplio y despejado, ideal para quienes buscan comodidad absoluta durante largas jornadas de exposición digital. Un modelo resistente y liviano que se adapta a cualquier entorno, desde la oficina hasta el hogar.",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_2X_803328-MLA96315994101_102025-F.webp",
+        "price": "$35.000"
     },
     {
         "id": "prod-004",

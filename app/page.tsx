@@ -3,14 +3,17 @@ import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Products from "./components/Products";
 import Delivery from "./components/Delivery";
+import { getProducts } from "./lib/actions";
 
-export default function Home() {
+export default async function Home() {
+  const products = await getProducts();
+
   return (
     <div className="flex flex-col min-h-screen bg-background font-sans dark:bg-background">
       <Navbar />
       <main className="flex min-h-screen w-full flex-col gap-10">
         <Hero />
-
+        
         <section className="w-full max-w-6xl mx-auto px-4 py-16 sm:px-6 lg:px-8 space-y-24">
           {/* Acetate Section */}
           <div className="flex flex-col md:flex-row items-center gap-12 animate-fade-in-up">
@@ -84,7 +87,7 @@ export default function Home() {
           </div>
         </section>
 
-        <Products />
+        <Products initialProducts={products} />
         <Delivery />
       </main>
       <Footer />

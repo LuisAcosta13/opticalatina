@@ -2,11 +2,15 @@
 import { useState } from "react";
 import Product from "./Product";
 
-import productsData from "../data/products.json";
+interface ProductType {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  price: string;
+}
 
-const products = productsData;
-
-const Products = () => {
+const Products = ({ initialProducts }: { initialProducts: ProductType[] }) => {
   const [visibleCount, setVisibleCount] = useState(3);
 
   const handleLoadMore = () => {
@@ -18,9 +22,9 @@ const Products = () => {
       <h1 className="text-4xl font-bold mb-8">Nuestros armazones</h1>
       <div className="flex flex-col items-center justify-center">
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center items-stretch">
-          {products.slice(0, visibleCount).map((product, index) => (
+          {initialProducts.slice(0, visibleCount).map((product, index) => (
             <Product
-              key={index}
+              key={product.id || index}
               name={product.name}
               description={product.description}
               image={product.image}
@@ -30,7 +34,7 @@ const Products = () => {
             />
           ))}
         </ul>
-        {visibleCount < products.length && (
+        {visibleCount < initialProducts.length && (
           <button onClick={handleLoadMore} className="cursor-pointer mt-8 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">
             Ver más
           </button>
