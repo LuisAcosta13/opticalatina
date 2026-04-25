@@ -2,21 +2,22 @@
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import fs from "fs/promises";
-import path from "path";
-
-const PRODUCTS_FILE = path.join(process.cwd(), "app/data/products.json");
+import prisma from "./prisma";
 
 export async function login(formData: FormData) {
   const email = formData.get("email");
   const password = formData.get("password");
 
-  // Credenciales definidas
-  if (email === "virtualclearvision@gmail.com" && password === "4dm1n0pt1c4") {
+  // Credenciales protegidas mediante variables de entorno
+  const adminEmail = process.env.ADMIN_EMAIL;
+  const adminPassword = process.env.ADMIN_PASSWORD;
+
+  if (email === adminEmail && password === adminPassword && adminEmail && adminPassword) {
     const cookieStore = await cookies();
     cookieStore.set("admin_session", "true", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
       maxAge: 60 * 60 * 24, // 1 day
       path: "/",
     });
@@ -34,10 +35,11 @@ export async function logout() {
 
 export async function getProducts() {
   try {
-    const data = await fs.readFile(PRODUCTS_FILE, "utf-8");
-    return JSON.parse(data);
+    return await prisma.product.findMany({
+      orderBy: { createdAt: "desc" },
+    });
   } catch (error) {
-    console.error("Error reading products:", error);
+    console.error("Error fetching products:", error);
     return [];
   }
 }
@@ -48,19 +50,20 @@ export async function addProduct(formData: FormData) {
   const price = formData.get("price") as string;
   const image = formData.get("image") as string || "/glasses.png";
 
-  const products = await getProducts();
-  const newProduct = {
-    id: `prod-${Date.now()}`,
-    name,
-    description,
-    image,
-    price,
-  };
-
-  products.push(newProduct);
-  await fs.writeFile(PRODUCTS_FILE, JSON.stringify(products, null, 4));
-  
-  return { success: true };
+  try {
+    await prisma.product.create({
+      data: {
+        name,
+        description,
+        price,
+        image,
+      },
+    });
+    return { success: true };
+  } catch (error) {
+    console.error("Error adding product:", error);
+    return { error: "Error al agregar el producto" };
+  }
 }
 
 export async function updateProduct(id: string, formData: FormData) {
@@ -69,30 +72,31 @@ export async function updateProduct(id: string, formData: FormData) {
   const price = formData.get("price") as string;
   const image = formData.get("image") as string;
 
-  const products = await getProducts();
-  const index = products.findIndex((p: any) => p.id === id);
-
-  if (index !== -1) {
-    products[index] = {
-      ...products[index],
-      name,
-      description,
-      price,
-      image: image || products[index].image,
-    };
-    await fs.writeFile(PRODUCTS_FILE, JSON.stringify(products, null, 4));
+  try {
+    await prisma.product.update({
+      where: { id },
+      data: {
+        name,
+        description,
+        price,
+        image: image || undefined,
+      },
+    });
     return { success: true };
+  } catch (error) {
+    console.error("Error updating product:", error);
+    return { error: "Error al actualizar el producto" };
   }
-  return { error: "Producto no encontrado" };
 }
 
 export async function deleteProduct(id: string) {
-  const products = await getProducts();
-  const filteredProducts = products.filter((p: any) => p.id !== id);
-
-  if (products.length !== filteredProducts.length) {
-    await fs.writeFile(PRODUCTS_FILE, JSON.stringify(filteredProducts, null, 4));
+  try {
+    await prisma.product.delete({
+      where: { id },
+    });
     return { success: true };
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    return { error: "Error al eliminar el producto" };
   }
-  return { error: "Producto no encontrado" };
 }
