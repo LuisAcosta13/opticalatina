@@ -5,17 +5,25 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import prisma from "./prisma";
 
+const SESSION_NAME = process.env.SESSION_NAME || "admin_session";
+const SESSION_SECRET = process.env.SESSION_SECRET;
+
+async function verifySession() {
+  const cookieStore = await cookies();
+  const session = cookieStore.get(SESSION_NAME);
+  return session?.value === SESSION_SECRET && SESSION_SECRET !== undefined;
+}
+
 export async function login(formData: FormData) {
   const email = formData.get("email");
   const password = formData.get("password");
 
-  // Credenciales protegidas mediante variables de entorno
   const adminEmail = process.env.ADMIN_EMAIL;
   const adminPassword = process.env.ADMIN_PASSWORD;
 
   if (email === adminEmail && password === adminPassword && adminEmail && adminPassword) {
     const cookieStore = await cookies();
-    cookieStore.set("admin_session", "true", {
+    cookieStore.set(SESSION_NAME, SESSION_SECRET!, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
@@ -30,7 +38,7 @@ export async function login(formData: FormData) {
 
 export async function logout() {
   const cookieStore = await cookies();
-  cookieStore.delete("admin_session");
+  cookieStore.delete(SESSION_NAME);
   redirect("/admin/login");
 }
 
@@ -46,6 +54,10 @@ export async function getProducts() {
 }
 
 export async function addProduct(formData: FormData) {
+  if (!await verifySession()) {
+    return { error: "No autorizado" };
+  }
+
   const name = formData.get("name") as string;
   const description = formData.get("description") as string;
   const price = formData.get("price") as string;
@@ -70,6 +82,10 @@ export async function addProduct(formData: FormData) {
 }
 
 export async function updateProduct(id: string, formData: FormData) {
+  if (!await verifySession()) {
+    return { error: "No autorizado" };
+  }
+
   const name = formData.get("name") as string;
   const description = formData.get("description") as string;
   const price = formData.get("price") as string;
@@ -95,6 +111,10 @@ export async function updateProduct(id: string, formData: FormData) {
 }
 
 export async function deleteProduct(id: string) {
+  if (!await verifySession()) {
+    return { error: "No autorizado" };
+  }
+
   try {
     await prisma.product.delete({
       where: { id },
