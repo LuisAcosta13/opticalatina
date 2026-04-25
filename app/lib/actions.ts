@@ -2,6 +2,7 @@
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import prisma from "./prisma";
 
 export async function login(formData: FormData) {
@@ -59,6 +60,8 @@ export async function addProduct(formData: FormData) {
         image,
       },
     });
+    revalidatePath("/");
+    revalidatePath("/admin");
     return { success: true };
   } catch (error) {
     console.error("Error adding product:", error);
@@ -82,6 +85,8 @@ export async function updateProduct(id: string, formData: FormData) {
         image: image || undefined,
       },
     });
+    revalidatePath("/");
+    revalidatePath("/admin");
     return { success: true };
   } catch (error) {
     console.error("Error updating product:", error);
@@ -94,6 +99,8 @@ export async function deleteProduct(id: string) {
     await prisma.product.delete({
       where: { id },
     });
+    revalidatePath("/");
+    revalidatePath("/admin");
     return { success: true };
   } catch (error) {
     console.error("Error deleting product:", error);
