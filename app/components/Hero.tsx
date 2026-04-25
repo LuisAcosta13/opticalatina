@@ -27,10 +27,14 @@ const Hero = () => {
             <div className="splide__track">
                 <ul className="splide__list">
                     <li className="splide__slide relative w-full aspect-video md:aspect-[1920/540]">
-                        <Image className="object-cover" src="/images/banner1-desktop.png" alt="Slide 1" fill priority sizes="100vw"/>
+                        <a href="#products">
+                            <Image className="object-cover" src="/images/banner1-desktop.png" alt="Slide 1" fill priority sizes="100vw"/>
+                        </a>
                     </li>
                     <li className="splide__slide relative w-full aspect-video md:aspect-[1920/540]">
-                        <Image className="object-cover" src="/images/banner2-desktop.png" alt="Slide 2" fill priority sizes="100vw"/>
+                        <a href="#products">
+                            <Image className="object-cover" src="/images/banner2-desktop.png" alt="Slide 2" fill priority sizes="100vw"/>
+                        </a>
                     </li>   
                 </ul>
             </div>
